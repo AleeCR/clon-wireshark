@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clon de Wireshark</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>🔍 Clon de Wireshark</h1>
+        <p>Analizador de protocolos de red</p>
+    </div>
+
+    <div class="controls">
+        <div class="control-row">
+            <label>Interfaz:</label>
+            <select id="interface">
+                <option value="">Seleccionar interfaz...</option>
+            </select>
+            <button onclick="loadInterfaces()" class="btn-save">🔄 Recargar</button>
+        </div>
+        
+        <div class="control-row">
+            <label>Filtro:</label>
+            <input type="text" id="filter" placeholder="ej. tcp port 80, udp, icmp, host 192.168.1.1">
+        </div>
+        
+        <div class="control-row">
+            <button onclick="startCapture()" id="startButton" class="btn-start">▶️ Iniciar Captura</button>
+            <button onclick="stopCapture()" id="stopButton" class="btn-stop" disabled>⏹️ Detener Captura</button>
+            <button onclick="saveCapture()" id="saveButton" class="btn-save">💾 Guardar Captura</button>
+            <button onclick="clearPackets()" class="btn-save">🗑️ Limpiar</button>
+        </div>
+    </div>
+
+    <div id="status" class="status stopped">Estado: Detenido</div>
+    
+    <div class="packet-count" id="packetCount">Paquetes capturados: 0</div>
+    
+    <div class="table-container" id="tableContainer">
+        <table id="packetTable">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Tiempo</th>
+                    <th>Origen</th>
+                    <th>Destino</th>
+                    <th>Protocolo</th>
+                    <th>Longitud</th>
+                    <th>Información</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    
+    <div id="details">Selecciona un paquete para ver detalles del protocolo.</div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
