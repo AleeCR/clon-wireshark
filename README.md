@@ -35,6 +35,7 @@ Luego, abre tu navegador y accede a [http://localhost:5000](http://localhost:500
 
 ## 📂 Estructura del proyecto
 
+```
 wireshark-clone-flask/
 │ wireshark.py
 │ requirements.txt
@@ -45,7 +46,8 @@ wireshark-clone-flask/
 │ ├── styles.css
 │ └── script.js
 
-text
+```
+
 - **wireshark.py**: servidor Flask y lógica de captura
 - **templates/**: HTML (interfaz principal)
 - **static/**: estilos CSS y JavaScript de frontend
